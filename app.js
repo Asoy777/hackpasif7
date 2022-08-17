@@ -9,5 +9,5 @@ app.use(router)
 
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(`Listening to http://localhost:${port}/`)
 })

@@ -1,4 +1,5 @@
 const express = require('express')
+const UserController = require('../controllers/UserController')
 const router = express.Router()
 
 // router.get('/', (req, res) => {
@@ -6,10 +7,10 @@ const router = express.Router()
 // })
 
 router.get('/', )
-router.get('/auth/register', )
-router.post('/auth/register', )
-router.get('/auth/login', )
-router.post('/auth/register', )
+router.get('/auth/register', UserController.registerForm)
+router.post('/auth/register', UserController.postRegister)
+router.get('/auth/login', UserController.loginForm)
+router.post('/auth/login', UserController.postLogin)
 
 router.get('/course', ) //show all courses (??)
 router.get('/course/:courseId', ) //show courses detail (?)
