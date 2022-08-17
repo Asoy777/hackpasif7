@@ -1,11 +1,11 @@
 const express = require('express')
+const Controller = require('../controllers/controller')
 const router = express.Router()
-
 // router.get('/', (req, res) => {
 //   res.send('Hello World!')
 // })
 
-router.get('/', )
+router.get('/', Controller.home)
 router.get('/auth/register', )
 router.post('/auth/register', )
 router.get('/auth/login', )
