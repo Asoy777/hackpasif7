@@ -26,12 +26,17 @@ class UserController {
     console.log(email, password)
     User.findOne({where: {email}})
       .then(user => {
-        const isValidPassword = bcrypt.compareSync(password, user.password)
-        if(isValidPassword) {
-          res.redirect('/')
-        } else {
-          const error = 'invalid username/password'
+        if(!user) {
+          const error = 'invalid username'
           res.redirect(`/auth/login?err=${error}`)
+        } else {
+          const isValidPassword = bcrypt.compareSync(password, user.password)
+          if(isValidPassword) {
+            res.redirect('/')
+          } else {
+            const error = 'invalid password'
+            res.redirect(`/auth/login?err=${error}`)
+          }
         }
       })
       .catch(err => res.send(err))
