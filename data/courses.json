@@ -3,30 +3,46 @@
         "name": "Basic Javascript",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
         "duration": 300,
-        "CategoryId": 1
+        "CategoryId": 1,
+        "picture": "https://c.tenor.com/TReUojNlZ6wAAAAj/js-javascript.gif",
+        "startDate": "2022-11-30",
+        "type": "online"
     },
     {
         "name": "Intermediate Javascript",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
         "duration": 400,
-        "CategoryId": 1
+        "CategoryId": 1,
+        "picture": "https://c.tenor.com/s1PTNnkaSQsAAAAj/js-java-script.gif",
+        "startDate": "2022-10-20",
+        "type": "offline"
     },
     {
         "name": "SQL Introduction",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
         "duration": 350,
-        "CategoryId": 2
+        "CategoryId": 2,
+        "picture": "https://c.tenor.com/NN9_wWaCxx8AAAAj/mysql.gif",
+        "startDate": "2022-09-11",
+        "type": "online"
     },
     {
         "name": "Python for Beginners",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
         "duration": 300,
-        "CategoryId": 3
+        "CategoryId": 3,
+        "picture": "https://c.tenor.com/_7r8RXryt3QAAAAM/python-powered.gif",
+        "startDate": "2022-10-20",
+        "type": "offline"
     },
     {
         "name": "Python Intermediate",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
         "duration": 400,
-        "CategoryId": 3
+        "CategoryId": 3,
+        "picture": "https://c.tenor.com/_7r8RXryt3QAAAAM/python-powered.gif",
+        "startDate": "2022-11-30",
+        "type": "online"
+
     }
 ]
