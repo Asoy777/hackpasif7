@@ -1,12 +1,18 @@
 "use strict"
 
 const express = require('express')
-const CourseController = require('../controllers/courseController')
+const TeacherController = require('../controllers/teacherController')
 const teacher = express.Router()
 
+teacher.use((req, res, next) => {
+  if(req.session.role == 'student') {
+    const error = `You dont have access`
+    res.redirect(`/login?err=${error}`)
+  }
+  next()
+})
 
-teacher.get('/course')
-teacher.get('/course/:courseId/edit', CourseController.edit)  // done // khusus admin/teacher
-teacher.post('/course/:courseId/edit', CourseController.update) // done // khusus admin/teacher
+teacher.get('/course/:courseId/edit', TeacherController.courseEdit)
+teacher.post('/course/:courseId/edit', TeacherController.courseUpdate)
 
 module.exports = teacher

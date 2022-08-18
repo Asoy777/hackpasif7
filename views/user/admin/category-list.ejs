@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../../partials/head') %> 
+</head>
+<body>
+  <%- include('../../partials/user-navbar') %>
+  <div class="m-5 pb-3">
+    <h1>Category List</h1><br>
+    <a href="/user/admin/category/add">
+      <button>Add Category</button><br><br>
+    </a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% categories.forEach(el => { %>
+          <tr>
+            <td><%= el.name %> </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

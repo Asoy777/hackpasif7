@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head') %>
+</head>
+<body>
+    <%- include('../../partials/user-navbar') %>
+    <div class="m-5 pb-3">
+        <h1>Add New Course</h1><br>
+        <% if (errors) { %>
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+              <div>
+                <% errors.forEach(el => { %>
+                  <p><%= el %> </p>
+                <% }) %>
+              </div>
+            </div>
+          <% } %>
+        <form action="/user/admin/course/add" method="post">
+            <div>
+                <label>Courses name: </label>
+                <input type="text" name="name">
+            </div><br>
+            <div>
+                <label>Description: </label> <br>
+                <textarea name="description" id="" cols="50" rows="10"></textarea>
+            </div><br>
+            <div>
+                <label>Picture:</label>
+                <input type="text" name="picture">
+            </div><br>
+            <div>
+                <label>Duration (in hour):</label>
+                <input type="number" name="duration">
+            </div><br>
+            <div>
+                <label>Start Date:</label>
+                <input type="date" name="startDate">
+            </div><br>
+            <div>
+                <label>Type:</label>
+                <select name="type">
+                    <option value="online">Online</option>
+                    <option value="offline">Offline</option>
+                </select>
+            </div><br>
+            <div>
+                <label>Category:</label>
+                <select name="CategoryId">
+                    <option selected disabled>--select category--</option>
+                    <% categories.forEach(el => { %>
+                     <option value="<%= el.id %>"><%= el.name %></option>
+                    <% }) %>
+                </select>
+            </div><br>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+</body>
+</html>

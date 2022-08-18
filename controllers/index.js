@@ -3,7 +3,9 @@ const bcrypt = require('bcryptjs')
 
 class Controller {
     static home(req, res){
-        res.render('home')
+        let userId = ''
+        if(req.session.userId) userId = req.session.userId
+        res.render('home', {userId})
     }
     
     static add(req, res) {
@@ -36,7 +38,9 @@ class Controller {
                 } else {
                     const isValidPassword = bcrypt.compareSync(password, user.password)
                     if(isValidPassword) {
-                        res.redirect('/')
+                        req.session.userId = user.id
+                        req.session.role = user.role
+                        res.redirect(`/user/${user.id}`)
                     } else {
                         const error = 'invalid password'
                         res.redirect(`/login?err=${error}`)
@@ -44,7 +48,17 @@ class Controller {
                 }
             })
             .catch(err => res.send(err))
-        }
+    }
+
+    static logout(req, res) {
+        req.session.destroy(err => {
+            if (err) {
+              res.send(err)
+            } else {
+              res.redirect('/')
+            }
+        })
+    }
 
 }
 

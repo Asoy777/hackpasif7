@@ -18,14 +18,81 @@ module.exports = (sequelize, DataTypes) => {
     get durationHour() {
       return `${this.duration} jam`
     }
+
   }
   Course.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    duration: DataTypes.INTEGER,
-    CategoryId: DataTypes.INTEGER,
-    startDate: DataTypes.DATE,
-    type: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Name is required`
+        },
+        notNull: {
+          msg: `Name is required`
+        }
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Description is required`
+        },
+        notNull: {
+          msg: `Description is required`
+        }
+      }
+    },
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Duration is required`
+        },
+        notNull: {
+          msg: `Duration is required`
+        }
+      }
+    },
+    CategoryId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Please Select Category`
+        },
+        notNull: {
+          msg: `Please Select Category`
+        }
+      }
+    },
+    startDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Date is Required`
+        },
+        notNull: {
+          msg: `Date is Required`
+        }
+      }
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Type is Required`
+        },
+        notNull: {
+          msg: `Type is Required`
+        }
+      }
+    },
     picture: DataTypes.STRING
   }, {
     sequelize,

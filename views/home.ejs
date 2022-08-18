@@ -4,11 +4,16 @@
     <%- include('./partials/head') %> 
 </head>
 <body>
-    <%- include('./partials/default-navbar') %> 
-    <a href="/course" style="text-decoration: none;">
-        <button>Courses</button>
-    </a>
-        <h1>Welcome to HackPasif 7</h1>
-    <img src="./views/assets/01.jpg" alt="sebuah gambar"> <br>
+    <% if (userId) { %>
+        <%- include('./partials/user-navbar') %> 
+    <% } else { %>
+        <%- include('./partials/navbar') %> 
+    <% } %>
+    <div class="m-5 pb-3  text-center">
+        <span class="align-middle">
+            <h1>Welcome to HackPasif 7</h1><br>
+            <img src="https://c.tenor.com/Yg8O2WDlGkYAAAAj/cyrentec-sci-fi.gif" alt="sebuah gambar" class="img-responsive"> <br>
+        </span>
+    </div>
 </body>
 </html>

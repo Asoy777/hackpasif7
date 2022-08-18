@@ -1,13 +1,22 @@
 "use strict"
 
 const express = require('express')
-const CourseController = require('../controllers/courseController')
+const AdminController = require('../controllers/adminController')
 const admin = express.Router()
 
-admin.get('/course/add', CourseController.add)
-admin.post('/course/add', CourseController.create)
-admin.get('/course/:courseId/edit', CourseController.edit)  // done // khusus admin/teacher
-admin.post('/course/:courseId/edit', CourseController.update) // done // khusus admin/teacher
-admin.get('/course/:courseId/delete', CourseController.delete) // done // khusus admin
+admin.use((req, res, next) => {
+  if(req.session.role != 'admin') {
+    const error = `You dont have access`
+    res.redirect(`/login?err=${error}`)
+  }
+  next()
+})
+
+admin.get('/category', AdminController.categoryList)
+admin.get('/course/add', AdminController.courseAdd)
+admin.post('/course/add', AdminController.courseCreate)
+admin.get('/category/add', AdminController.categoryAdd)
+admin.post('/category/add', AdminController.categoryCreate)
+admin.get('/course/:courseId/delete', AdminController.CourseDelete)
 
 module.exports = admin
