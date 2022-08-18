@@ -49,7 +49,7 @@ class UserController {
         res.send(user)
       })
       .catch(err => {
-        res.sen(err)
+        res.send(err)
       })
   }
 
