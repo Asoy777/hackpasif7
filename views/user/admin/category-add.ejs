@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head') %> 
+</head>
+<body>
+    <%- include('../../partials/user-navbar') %>
+    <div class="m-5 pb-3">
+        <h1>Add New Category</h1>
+        <% if (errors) { %>
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+              <div>
+                <% errors.forEach(el => { %>
+                  <p><%= el %> </p>
+                <% }) %>
+              </div>
+            </div>
+          <% } %>
+        <form action="/user/admin/category/add" method="post">
+            <label for="">New Course Category: </label> <br>
+            <input type="text" name="name"><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

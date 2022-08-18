@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %> 
+</head>
+<body>
+  <%- include('../partials/user-navbar') %> 
+  <div class="m-5 pb-3">
+    <h1>Course List</h1>
+    <h4>Role: <%= userRole %></h4><br>
+    <form action="/user/course" method="get">
+      <input type="text" name="search">
+      <button type="submit">Search</button>
+    </form>
+    <form action="/user/course" method="get"><br>
+      <select name="filter">
+        <option disabled selected>Category</option>
+        <% categoryList.forEach(el => { %>
+         <option value="<%= el.id %>"><%= el.name %></option>
+        <% }) %>
+      </select>
+      <button type="submit">filter</button>
+    </form>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Duration</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Starts Date</th>
+          <% if (userRole === 'admin' || userRole === 'teacher') { %>
+           <th>action</th>
+          <% } %> 
+        </tr>
+      </thead>
+      <tbody>
+        <% courses.forEach(el => { %>
+         <tr>
+          <td><img src="<%= el.picture %>" width="50px"></td>
+          <td><a href="/course/<%= el.id %>" style="text-decoration: none;"><%= el.name %></a></td>
+          <td><%= el.durationHour %></td>
+          <td><%= el.type %></td>
+          <td><%= el.Category.name %></td>
+          <td><%= dateFormatter(el.startDate) %></td>
+          <% if (userRole === 'admin' || userRole === 'teacher') { %>
+            <td>
+              <a href="/user/teacher/course/<%= el.id %>/edit" style="text-decoration: none">
+                <button>Edit</button>
+              </a>
+                <% if (userRole === 'admin') { %>
+                  <a href="/user/admin/course/<%= el.id %>/delete" style="text-decoration: none">
+                    <button>Delete</button>
+                  </a>
+                <% } else { %>
+                  <a href="#" style="text-decoration: none">
+                    <button>Teach</button>
+                  </a>
+                <% } %>
+              <% } else { %>
+                <a href="#" style="text-decoration: none">
+                  <button>Attend</button>
+                </a>
+              <% } %> 
+            </td>
+         </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

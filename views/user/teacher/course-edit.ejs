@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head') %> 
+</head>
+<body>
+    <nav class="m-2 pb-2 navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand"><strong>HackPasif7</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/user/<%= userId %>">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/course">Course</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="m-5 pb-3">
+        <h1>Edit Course</h1><br>
+        <form action="/user/teacher/course/<%= course.id %>/edit" method="post">
+            <div>
+                <label>Courses name: </label>
+                <input type="text" name="name" value="<%= course.name %>">
+            </div><br>
+            <div>
+                <label>Description: </label> <br>
+                <textarea name="description" id="" cols="50" rows="10"><%= course.description %></textarea>
+            </div><br>
+            <div>
+                <label>Picture:</label>
+                <input type="text" name="picture" value="<%= course.picture %>">
+            </div><br>
+            <div>
+                <label>Duration (in hour):</label>
+                <input type="number" name="duration" value="<%= course.duration %>">
+            </div><br>
+            <div>
+              <label>Start Date:</label>
+              <input type="date" name="startDate" value="<%= course.startDate %>">
+            </div><br>
+            <div>
+              <label>Type:</label>
+              <select name="type">
+                  <option value="online">Online</option>
+                  <option value="offline">Offline</option>
+              </select>
+            </div><br>
+            <div>
+                <label>Category:</label>
+                <select name="CategoryId">
+                    <option disabled>--select category--</option>
+                    <% categoryList.forEach(el => { %>
+                        <% if (el.id === course.CategoryId) { %>
+                            <option selected value="<%= el.id %>"><%= el.name %></option>
+                        <% } else { %>
+                            <option value="<%= el.id %>"><%= el.name %></option>
+                        <% } %>
+                    <% }) %>
+                </select>
+            </div><br>
+            <a href=""><button type="submit">SUBMIT</button></a>
+        </form>
+    </div>
+</body>
+</html>
