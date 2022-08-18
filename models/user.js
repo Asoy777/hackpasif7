@@ -26,18 +26,11 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'User',
   });
 
-  User.addHook('beforeCreate', (instance, opt) => {
-    const salt = bcrypt.genSaltSync(15)
-    const hash = bcrypt.hashSync(instance.password, salt)
-
-    instance.password = hash
-  })
-
-  User.addHook('beforeBulkCreate', (instance, opt) => {
+  User.addHook('beforeCreate', (user, opt) => {
     const salt = bcrypt.genSaltSync(8)
-    const hash = bcrypt.hashSync(instance.password, salt)
+    const hash = bcrypt.hashSync(user.password, salt)
 
-    instance.password = hash
+    user.password = hash
   })
 
   return User;
