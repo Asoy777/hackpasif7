@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Basic Javascript",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
+        "duration": 300,
+        "CategoryId": 1
+    },
+    {
+        "name": "Intermediate Javascript",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
+        "duration": 400,
+        "CategoryId": 1
+    },
+    {
+        "name": "SQL Introduction",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
+        "duration": 350,
+        "CategoryId": 2
+    },
+    {
+        "name": "Python for Beginners",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
+        "duration": 300,
+        "CategoryId": 3
+    },
+    {
+        "name": "Python Intermediate",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor nisi non lacus malesuada sodales. Morbi mattis enim at eleifend viverra. Morbi sed sodales mi, vel fringilla tellus. Donec pretium arcu vel ligula maximus hendrerit. Mauris sit amet pulvinar purus. In et tellus iaculis, ullamcorper magna ac, elementum sem. Quisque ullamcorper neque sed imperdiet blandit. Vestibulum quis sollicitudin nisi.",
+        "duration": 400,
+        "CategoryId": 3
+    }
+]
