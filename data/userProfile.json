@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Agus",
+        "age": 32,
+        "phoneNumber": "0852123456712",
+        "gender": "Male",
+        "UserId": 1,
+        "picture": "https://c.tenor.com/bho6IMExRDQAAAAj/man-standing-people.gif"
+    },
+    {
+        "name": "Atun",
+        "age": 21,
+        "phoneNumber": "08123456789",
+        "gender": "Female",
+        "UserId": 2,
+        "picture": "https://c.tenor.com/8MOeUMMY6awAAAAj/woman-people.gif"
+    },
+    {
+        "name": "Amin",
+        "age": 15,
+        "phoneNumber": "08231232712",
+        "gender": "Male",
+        "UserId": 3,
+        "picture": "https://c.tenor.com/bho6IMExRDQAAAAj/man-standing-people.gif"
+    }
+]
