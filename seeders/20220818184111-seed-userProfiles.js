@@ -15,7 +15,7 @@ module.exports = {
      userProfile = userProfile.map((el) => {
       return {...el, createdAt:new Date(), updatedAt: new Date()}
      })
-     return queryInterface.bulkInsert('userProfiles', userProfile)
+     return queryInterface.bulkInsert('UserProfiles', userProfile)
   },
 
   down (queryInterface, Sequelize) {
@@ -25,6 +25,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     return queryInterface.bulkDelete('userProfiles', null)
+     return queryInterface.bulkDelete('UserProfiles', null)
   }
 };
