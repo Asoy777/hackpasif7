@@ -1,13 +1,13 @@
-const {User} = require('../models')
+const {User, UserProfile} = require('../models')
 const bcrypt = require('bcryptjs')
 
 class UserController {
 
-  static registerForm(req, res) {
+  static add(req, res) {
     res.render('auth-pages/register-form')
   }
 
-  static postRegister(req, res) {
+  static create(req, res) {
     const {email, password} = req.body
     const role = 'student'
     User.create({email, password, role})
@@ -28,18 +28,51 @@ class UserController {
       .then(user => {
         if(!user) {
           const error = 'invalid username'
-          res.redirect(`/auth/login?err=${error}`)
+          res.redirect(`/user/login?err=${error}`)
         } else {
           const isValidPassword = bcrypt.compareSync(password, user.password)
           if(isValidPassword) {
             res.redirect('/')
           } else {
             const error = 'invalid password'
-            res.redirect(`/auth/login?err=${error}`)
+            res.redirect(`/user/login?err=${error}`)
           }
         }
       })
       .catch(err => res.send(err))
+  }
+
+  static detail(req, res) {
+    const userId = +req.params.userId
+    User.findByPk(userId, {include: UserProfile})
+      .then(user => {
+        res.send(user)
+      })
+      .catch(err => {
+        res.sen(err)
+      })
+  }
+
+  static edit(req, res) {
+    const userId = +req.params.userId
+    UserProfile.findByPk(userId)
+      .then(user =>{
+        res.send(user)
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+
+  static update(req, res) {
+    const {name, age, phoneNumber, UserId} = req.body
+    UserProfile.update({name, age, phoneNumber, UserId})
+      .then(() => {
+        res.send('profile sudah diupdate')
+      })
+      .catch(err => {
+        res.send(err)
+      })
   }
 
 }
