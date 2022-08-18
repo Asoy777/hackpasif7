@@ -5,7 +5,11 @@ const UserController = require('../controllers/userController')
 const router = express.Router()
 
 
-router.get('/', Controller.home)
+// router.get('/', Controller.home)
+
+router.get('/', (req, res) => {
+    res.render('editUserProfile')
+  })
 
 // router.get('/', (req, res) => {
 //   res.render('')
