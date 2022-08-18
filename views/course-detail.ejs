@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %> 
+</head>
+<body>
+  <div class="m-5 pb-3">
+    <a href="/course" style="text-decoration: none;">
+      <button>Back To Courses</button>
+    </a><br><br>
+    <h1><%= course.name %></h1><br>
+    <h3><%= course.Category.name %> </h3>
+    <h3><%= course.durationHour %></h3><br>
+    <a href="#" style="text-decoration: none;">
+      <button>Sebuah Button</button>
+    </a><br><br>
+    <p><%= course.description %></p>
+  </div>
+</body>
+</html>

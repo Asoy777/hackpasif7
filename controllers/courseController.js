@@ -1,10 +1,21 @@
+const { Op } = require('sequelize')
 const {Course, Category} = require('../models')
 
 class CourseController {
   static list(req, res) {
-    Course.findAll({include: Category})
+    let option = req.query
+    let categoryList
+    if(option.search) option = {include: Category, where : {name:{[Op.iLike]: `%${option.search}%`}}}
+    else if(option.filter) option = {include: Category, where : {CategoryId:{[Op.eq]: option.filter}}}
+    else option = {include: Category}
+
+    Category.findAll()
+      .then(categories => {
+        categoryList = categories
+        return Course.findAll(option)
+      })
       .then(courses => {
-        res.send(courses)
+        res.render('course-list', {courses, categoryList})
       })
       .catch(err => {
         res.send(err)
@@ -15,20 +26,28 @@ class CourseController {
     const courseId = +req.params.courseId
     Course.findByPk(courseId, {include: Category})
       .then(course => {
-        res.send(course)
+        res.render('course-detail', {course})
       })
-      .catch(err)
+      .catch(err => {
+        res.send(err)
+      })
   }
 
   static add(req, res) {
-    res.send('masuk ke form add')
+    Category.findAll()
+      .then(categories => {
+        res.render('course-add', {categories})
+      })
+      .catch(err => {
+        res.send(err)
+      })
   }
 
   static create(req, res) {
     const {name, description, duration, CategoryId} = req.body
     Course.create({name, description, duration, CategoryId})
       .then(()=>{
-        res.send('ok, sudah di create')
+        res.redirect('/course')
       })
       .catch(err => {
         res.send(err)
@@ -37,9 +56,14 @@ class CourseController {
 
   static edit(req, res) {
     const courseId = +req.params.courseId
-    Course.findByPk(courseId, {include: Category})
+    let categoryList
+    Category.findAll()
+      .then(categories => {
+        categoryList = categories
+        return Course.findByPk(courseId, {include: Category})
+      })
       .then(course => {
-        res.send(course)
+        res.render('course-edit', {course, categoryList})
       })
       .catch(err => {
         res.send(err)
@@ -54,7 +78,7 @@ class CourseController {
       {where: {id: courseId}}
       )
       .then(()=>{
-        res.send(`udah diupdate course dengan id ${courseId}`)
+        res.redirect('/course')
       })
       .catch(err => {
         res.send(err)
@@ -65,7 +89,7 @@ class CourseController {
     const courseId = +req.params.courseId
     Course.destroy({where: {id: courseId}})
       .then(() => {
-        res.send(`udah didelete course dengan id ${courseId}`)
+        res.redirect('/course')
       })
       .catch(err => {
         res.send(err)

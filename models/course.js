@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       Course.belongsTo(models.Category)
       Course.hasMany(models.UserCourse)
     }
+
+    get durationHour() {
+      return `${this.duration} jam`
+    }
   }
   Course.init({
     name: DataTypes.STRING,
