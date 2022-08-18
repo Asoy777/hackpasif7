@@ -24,9 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     duration: DataTypes.INTEGER,
     CategoryId: DataTypes.INTEGER,
-    picture: DataTypes.STRING,
     startDate: DataTypes.DATE,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    picture: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Course',
