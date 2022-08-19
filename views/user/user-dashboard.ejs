@@ -3,41 +3,43 @@
 <head>
   <%- include('../partials/head') %> 
 <body>
-  <%- include('../partials/user-navbar') %> 
-  <div class="m-5 pb-3">
-    <h3>Hello, <%= user.UserProfile.name %></h3>
-    <h5>Role: <%= user.role %> </h5>
-    <% if (userRole = 'admin') { %>
-     <a href="/user/admin/category" style="text-decoration: none">
-      <button>Categories</button>
-     </a>
-     <a href="/user/admin/course/add" style="text-decoration: none">
-      <button>Add Course</button>
-     </a>
-    <% } %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Profile Picture</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Phone Number</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <td><img src="<%= user.UserProfile.profilePicture %>" width="50px"></td>
-        <td><%= user.UserProfile.name %></td>
-        <td><%= user.UserProfile.age %></td>
-        <td><%= user.UserProfile.phoneNumber %></td>
-        <td>
-          <a href="/user/<%= user.id %>/edit">
-            <button>Edit Profile</button>
-          </a>
-        </td>
-      </tbody>
-    </table>
-    
-  </div>
+  <% if (user) { %>
+    <%- include('../partials/user-navbar') %> 
+    <div class="m-5 pb-3">
+      <h3>Hello, <%= user.UserProfile.name %></h3>
+      <h5>Role: <%= user.role %> </h5>
+      <% if (userRole = 'admin') { %>
+       <a href="/user/admin/category" style="text-decoration: none">
+        <button>Categories</button>
+       </a>
+       <a href="/user/admin/course/add" style="text-decoration: none">
+        <button>Add Course</button>
+       </a>
+      <% } %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Profile Picture</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td><img src="<%= user.UserProfile.profilePicture %>" width="50px"></td>
+          <td><%= user.UserProfile.name %></td>
+          <td><%= user.UserProfile.age %></td>
+          <td><%= user.UserProfile.phoneNumber %></td>
+          <td>
+            <a href="/user/<%= user.id %>/edit">
+              <button>Edit Profile</button>
+            </a>
+          </td>
+        </tbody>
+      </table>
+      
+    </div>
+  <% } %>
 </body>
 </html>
